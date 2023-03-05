@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import pandas as pd
 import regex as re
 import random
@@ -124,5 +125,7 @@ def tatetweet(chosen_length):
 #tweets are limited to 55 words
 
 #
+print("enter a tweet length:")
 length = int(input())
-tatetweet(length)
+print("Tate tweets: ")
+print(tatetweet(length))
