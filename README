@@ -1,0 +1,3 @@
+This is a machine language model to emulate some of Andrew Tate's tweets. It is very bad and garbled. Have fun.
+GPTate.py is the main file. Others are older or in .ipnyb form. Simply run python3 on it.
+(check top line #!/usr/bin/env python3 is the same as where python3 is on your machine)
