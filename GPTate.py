@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import pandas as pd
 import regex as re
 import random
 print("Success")
@@ -42,7 +41,7 @@ def count_next_word(word):
 
 #
 
-def pick_next_word(start_word):
+def pick_next_word(start_word, randomness):
     
 
     
@@ -55,10 +54,22 @@ def pick_next_word(start_word):
         probability_array[1] = probability_array[1]+[term[1]]
     #converts it to a different format
     
-    weighting_placeholder = probability_array[1]
+    temp_array = []
     
-  #  for item in weighting_placeholder:
+   
+    for term in probability_array[1]:
+      term = term*10
+      term = term + randomness
+      if term < 1:
+        term = 1
+      
+      temp_array = temp_array + [term]
+
         
+
+
+  #  for item in weighting_placeholder:
+    probability_array[1] = temp_array
   #  total = 0
   #  for item in weighting_placeholder:
  ##       total = total+1
@@ -112,11 +123,11 @@ def pick():
     
 #
 
-def tatetweet(chosen_length):    
-    result = pick_next_word(pick())
+def tatetweet(chosen_length, randomness):    
+    result = pick_next_word(pick(), randomness)
     tatethiug = ""
     for i in range(chosen_length):
-        result = pick_next_word(result)
+        result = pick_next_word(result, randomness)
         if result not in acceptablechoices():
             result = pick()
         tatethiug = tatethiug + " " + str(result)
@@ -124,8 +135,19 @@ def tatetweet(chosen_length):
 #use pick() for second option if you want it to pick a random word for you
 #tweets are limited to 55 words
 
-#
-print("enter a tweet length:")
-length = int(input())
-print("Tate tweets: ")
-print(tatetweet(length))
+
+def final():
+  print("enter a tweet length:")
+  length = str(input())
+  print("enter a randomness value(must be < than -10. Higher values mean more random text")
+  randomness = str(input())
+  if length and randomness:
+    print("Tate tweets: ")
+    print(tatetweet(int(length), int(randomness)))
+    print("")
+  else: 
+    pass  
+  
+abcd = 2
+while abcd < 3:
+  final()
