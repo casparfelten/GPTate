@@ -124,5 +124,5 @@ def tatetweet(chosen_length):
 #tweets are limited to 55 words
 
 #
-
-tatetweet(20)
+length = int(input())
+tatetweet(length)
